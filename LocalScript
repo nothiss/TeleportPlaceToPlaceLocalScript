@@ -1,0 +1,15 @@
+local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local CurrentTeleport = 1
+
+UserInputService.InputBegan:Connect(function(Input)
+	if Input.KeyCode == Enum.KeyCode.E then
+		ReplicatedStorage.Teleport:FireServer(CurrentTeleport)
+		if CurrentTeleport ~= 2 then
+			CurrentTeleport = 2
+		else
+			CurrentTeleport = 1
+		end
+	end
+end)
