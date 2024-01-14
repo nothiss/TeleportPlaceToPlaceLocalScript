@@ -1,0 +1,12 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+
+ReplicatedStorage.Teleport.OnServerEvent:Connect(function(plr, tp)
+	if plr and plr.Character:FindFirstChild("HumanoidRootPart") then
+		if tp == 1 then
+			plr.Character.HumanoidRootPart.CFrame = workspace.Teleport1.CFrame
+		else
+			plr.Character.HumanoidRootPart.CFrame = workspace.Teleport2.CFrame
+		end
+	end
+end)
